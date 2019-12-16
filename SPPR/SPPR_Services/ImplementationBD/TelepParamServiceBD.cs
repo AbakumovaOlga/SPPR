@@ -63,6 +63,22 @@ namespace SPPR_Services.ImplementationBD
             throw new Exception("Элемент не найден");
         }
 
+        public TelepParamBM GetElement(int paramId, int telepId)
+        {
+            TelepParam element = context.TelepParams.FirstOrDefault(rec => rec.ParametrId == paramId&&rec.TelephoneId==telepId);
+            if (element != null)
+            {
+                return new TelepParamBM
+                {
+                    Id = element.Id,
+                    ParametrId = element.ParametrId,
+                    TelephoneId = element.TelephoneId,
+                    Value = element.Value
+                };
+            }
+            throw new Exception("Элемент не найден");
+        }
+
         public List<TelepParamBM> GetList()
         {
             List<TelepParamBM> result = context.TelepParams

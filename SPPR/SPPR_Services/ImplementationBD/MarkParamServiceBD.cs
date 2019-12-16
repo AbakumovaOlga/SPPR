@@ -90,6 +90,24 @@ namespace SPPR_Services.ImplementationBD
             return result;
         }
 
+        public List<MarkParametrBM> GetList(ParametrBM parametr)
+        {
+            List<MarkParametrBM> result = context.MarkParametrs
+               .Select(rec => new MarkParametrBM
+               {
+                   Id = rec.Id,
+                   Average = rec.Average,
+                   Cheking = rec.Cheking,
+                   Count = rec.Count,
+                   Down = rec.Down,
+                   Mark = rec.Mark,
+                   ParametrId = rec.ParametrId,
+                   Up = rec.Up
+               })
+               .Where(rec => rec.ParametrId==parametr.Id).ToList();
+            return result;
+        }
+
         public void UpdElement(MarkParametrBM model)
         {
             throw new NotImplementedException();

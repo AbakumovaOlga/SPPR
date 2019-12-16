@@ -11,7 +11,7 @@ namespace SPPR
         public int Id { get; set; }
 
 
-        public int? Value { get; set; }
+        public int Value { get; set; }
 
 
         public int TelephoneId { get; set; }

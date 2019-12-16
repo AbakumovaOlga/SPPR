@@ -13,7 +13,7 @@ namespace SPPR_Services.BindingModels
 
         public string Name { get; set; }
 
-        public DateTime Data { get; set; }
+        public DateTime Date { get; set; }
 
         public List<TelepParam> TelepParams { get; set; }
     }

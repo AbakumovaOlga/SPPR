@@ -15,6 +15,8 @@ namespace SPPR_Services.BindingModels
         public int Down { get; set; }
         public int Average { get; set; }
         public int Up { get; set; }
+
+
         public int Count { get; set; }
 
         public bool Cheking { get; set; }

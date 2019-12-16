@@ -13,9 +13,11 @@ namespace SPPR_Services.Interfaces
 
         void UpdElement(TelephoneBM model);
 
-        void DelElement(TelephoneBM model);
+        void DelElement(int id);
 
         List<TelephoneBM> GetList();
+
+        List<TelephoneBM> GetSortList();
 
         TelephoneBM GetElement(int id);
     }

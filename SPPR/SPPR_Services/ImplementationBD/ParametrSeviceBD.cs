@@ -36,9 +36,9 @@ namespace SPPR_Services.ImplementationBD
             context.SaveChanges();
         }
 
-        public void DelElement(ParametrBM model)
+        public void DelElement(int id)
         {
-            Parametr element = context.Parametrs.FirstOrDefault(rec => rec.Id == model.Id);
+            Parametr element = context.Parametrs.FirstOrDefault(rec => rec.Id == id);
             if (element != null)
             {
                 context.Parametrs.Remove(element);

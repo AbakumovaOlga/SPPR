@@ -30,15 +30,15 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.загрузитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.добавитьТелефонToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокТелефоновToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выбратьПараметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьПараметрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вЫбратьПараметрыToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокПараметровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.анализToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выборToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.прогнозToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.списокПараметровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.добавитьТелефонToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.списокТелефоновToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +65,20 @@
             this.загрузитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(110, 29);
             this.загрузитьДанныеToolStripMenuItem.Text = "Телефоны";
             // 
+            // добавитьТелефонToolStripMenuItem
+            // 
+            this.добавитьТелефонToolStripMenuItem.Name = "добавитьТелефонToolStripMenuItem";
+            this.добавитьТелефонToolStripMenuItem.Size = new System.Drawing.Size(266, 34);
+            this.добавитьТелефонToolStripMenuItem.Text = "Добавить телефон";
+            this.добавитьТелефонToolStripMenuItem.Click += new System.EventHandler(this.добавитьТелефонToolStripMenuItem_Click);
+            // 
+            // списокТелефоновToolStripMenuItem
+            // 
+            this.списокТелефоновToolStripMenuItem.Name = "списокТелефоновToolStripMenuItem";
+            this.списокТелефоновToolStripMenuItem.Size = new System.Drawing.Size(266, 34);
+            this.списокТелефоновToolStripMenuItem.Text = "Список телефонов";
+            this.списокТелефоновToolStripMenuItem.Click += new System.EventHandler(this.списокТелефоновToolStripMenuItem_Click);
+            // 
             // выбратьПараметрыToolStripMenuItem
             // 
             this.выбратьПараметрыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -80,12 +94,21 @@
             this.добавитьПараметрToolStripMenuItem.Name = "добавитьПараметрToolStripMenuItem";
             this.добавитьПараметрToolStripMenuItem.Size = new System.Drawing.Size(280, 34);
             this.добавитьПараметрToolStripMenuItem.Text = "Добавить параметр";
+            this.добавитьПараметрToolStripMenuItem.Click += new System.EventHandler(this.добавитьПараметрToolStripMenuItem_Click);
             // 
             // вЫбратьПараметрыToolStripMenuItem1
             // 
             this.вЫбратьПараметрыToolStripMenuItem1.Name = "вЫбратьПараметрыToolStripMenuItem1";
             this.вЫбратьПараметрыToolStripMenuItem1.Size = new System.Drawing.Size(280, 34);
             this.вЫбратьПараметрыToolStripMenuItem1.Text = "Выбрать параметры";
+            this.вЫбратьПараметрыToolStripMenuItem1.Click += new System.EventHandler(this.вЫбратьПараметрыToolStripMenuItem1_Click);
+            // 
+            // списокПараметровToolStripMenuItem
+            // 
+            this.списокПараметровToolStripMenuItem.Name = "списокПараметровToolStripMenuItem";
+            this.списокПараметровToolStripMenuItem.Size = new System.Drawing.Size(280, 34);
+            this.списокПараметровToolStripMenuItem.Text = "Список параметров";
+            this.списокПараметровToolStripMenuItem.Click += new System.EventHandler(this.списокПараметровToolStripMenuItem_Click);
             // 
             // анализToolStripMenuItem
             // 
@@ -101,40 +124,25 @@
             this.выборToolStripMenuItem.Name = "выборToolStripMenuItem";
             this.выборToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
             this.выборToolStripMenuItem.Text = "Выбор";
+            this.выборToolStripMenuItem.Click += new System.EventHandler(this.выборToolStripMenuItem_Click);
             // 
             // прогнозToolStripMenuItem
             // 
             this.прогнозToolStripMenuItem.Name = "прогнозToolStripMenuItem";
             this.прогнозToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
             this.прогнозToolStripMenuItem.Text = "Прогноз";
+            this.прогнозToolStripMenuItem.Click += new System.EventHandler(this.прогнозToolStripMenuItem_Click);
             // 
-            // списокПараметровToolStripMenuItem
-            // 
-            this.списокПараметровToolStripMenuItem.Name = "списокПараметровToolStripMenuItem";
-            this.списокПараметровToolStripMenuItem.Size = new System.Drawing.Size(280, 34);
-            this.списокПараметровToolStripMenuItem.Text = "Список параметров";
-            // 
-            // добавитьТелефонToolStripMenuItem
-            // 
-            this.добавитьТелефонToolStripMenuItem.Name = "добавитьТелефонToolStripMenuItem";
-            this.добавитьТелефонToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.добавитьТелефонToolStripMenuItem.Text = "Добавить телефон";
-            // 
-            // списокТелефоновToolStripMenuItem
-            // 
-            this.списокТелефоновToolStripMenuItem.Name = "списокТелефоновToolStripMenuItem";
-            this.списокТелефоновToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.списокТелефоновToolStripMenuItem.Text = "Список телефонов";
-            // 
-            // Form1
+            // Form_Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 422);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "Form_Start";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form_Start_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

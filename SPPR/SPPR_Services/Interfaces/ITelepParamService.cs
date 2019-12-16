@@ -19,5 +19,7 @@ namespace SPPR_Services.Interfaces
         List<TelepParamBM> GetList();
 
         TelepParamBM GetElement(int id);
+
+        TelepParamBM GetElement(int paramId, int telepId);
     }
 }

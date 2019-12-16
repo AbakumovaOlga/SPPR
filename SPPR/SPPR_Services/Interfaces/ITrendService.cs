@@ -17,6 +17,8 @@ namespace SPPR_Services.Interfaces
 
         List<TrendBM> GetList();
 
+        bool DeleteAll();
+
         TrendBM GetElement(int id);
     }
 }

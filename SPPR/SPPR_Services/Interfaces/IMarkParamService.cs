@@ -17,6 +17,8 @@ namespace SPPR_Services.Interfaces
 
         List<MarkParametrBM> GetList();
 
+        List<MarkParametrBM> GetList(ParametrBM parametr);
+
         MarkParametrBM GetElement(int id);
     }
 }

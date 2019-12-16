@@ -49,6 +49,15 @@ namespace SPPR_Services.ImplementationBD
             }
         }
 
+        public bool DeleteAll()
+        {
+            foreach (var el in GetList())
+            {
+                DelElement(el);
+            }
+            return true;
+        }
+
         public TrendBM GetElement(int id)
         {
             Trend element = context.Trends.FirstOrDefault(rec => rec.Id == id);

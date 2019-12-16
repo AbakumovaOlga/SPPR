@@ -28,42 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_Name = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_MalDown = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
+            this.numericUpDown_MalAr = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_MalUp = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_ArDow = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_ArAr = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_ArUp = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_BigDown = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_BigAr = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_BigUp = new System.Windows.Forms.NumericUpDown();
+            this.button_OK = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_MalDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_MalAr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_MalUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ArDow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ArAr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ArUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_BigDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_BigAr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_BigUp)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBox_Name
             // 
-            this.textBox1.Location = new System.Drawing.Point(236, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 26);
-            this.textBox1.TabIndex = 0;
+            this.textBox_Name.Location = new System.Drawing.Point(236, 61);
+            this.textBox_Name.Name = "textBox_Name";
+            this.textBox_Name.Size = new System.Drawing.Size(204, 26);
+            this.textBox_Name.TabIndex = 0;
             // 
             // label1
             // 
@@ -110,12 +110,12 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Большая";
             // 
-            // numericUpDown1
+            // numericUpDown_MalDown
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(171, 222);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown1.TabIndex = 7;
+            this.numericUpDown_MalDown.Location = new System.Drawing.Point(171, 222);
+            this.numericUpDown_MalDown.Name = "numericUpDown_MalDown";
+            this.numericUpDown_MalDown.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown_MalDown.TabIndex = 7;
             // 
             // label6
             // 
@@ -144,106 +144,107 @@
             this.label8.TabIndex = 10;
             this.label8.Text = "Верхняя";
             // 
-            // numericUpDown2
+            // numericUpDown_MalAr
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(338, 222);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown2.TabIndex = 11;
+            this.numericUpDown_MalAr.Location = new System.Drawing.Point(338, 222);
+            this.numericUpDown_MalAr.Name = "numericUpDown_MalAr";
+            this.numericUpDown_MalAr.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown_MalAr.TabIndex = 11;
             // 
-            // numericUpDown3
+            // numericUpDown_MalUp
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(502, 222);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown3.TabIndex = 12;
+            this.numericUpDown_MalUp.Location = new System.Drawing.Point(502, 222);
+            this.numericUpDown_MalUp.Name = "numericUpDown_MalUp";
+            this.numericUpDown_MalUp.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown_MalUp.TabIndex = 12;
             // 
-            // numericUpDown4
+            // numericUpDown_ArDow
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(171, 267);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown4.TabIndex = 13;
+            this.numericUpDown_ArDow.Location = new System.Drawing.Point(171, 267);
+            this.numericUpDown_ArDow.Name = "numericUpDown_ArDow";
+            this.numericUpDown_ArDow.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown_ArDow.TabIndex = 13;
             // 
-            // numericUpDown5
+            // numericUpDown_ArAr
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(338, 267);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown5.TabIndex = 14;
+            this.numericUpDown_ArAr.Location = new System.Drawing.Point(338, 267);
+            this.numericUpDown_ArAr.Name = "numericUpDown_ArAr";
+            this.numericUpDown_ArAr.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown_ArAr.TabIndex = 14;
             // 
-            // numericUpDown6
+            // numericUpDown_ArUp
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(502, 267);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown6.TabIndex = 15;
+            this.numericUpDown_ArUp.Location = new System.Drawing.Point(502, 267);
+            this.numericUpDown_ArUp.Name = "numericUpDown_ArUp";
+            this.numericUpDown_ArUp.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown_ArUp.TabIndex = 15;
             // 
-            // numericUpDown7
+            // numericUpDown_BigDown
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(171, 313);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown7.TabIndex = 16;
+            this.numericUpDown_BigDown.Location = new System.Drawing.Point(171, 313);
+            this.numericUpDown_BigDown.Name = "numericUpDown_BigDown";
+            this.numericUpDown_BigDown.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown_BigDown.TabIndex = 16;
             // 
-            // numericUpDown8
+            // numericUpDown_BigAr
             // 
-            this.numericUpDown8.Location = new System.Drawing.Point(338, 313);
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown8.TabIndex = 17;
+            this.numericUpDown_BigAr.Location = new System.Drawing.Point(338, 313);
+            this.numericUpDown_BigAr.Name = "numericUpDown_BigAr";
+            this.numericUpDown_BigAr.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown_BigAr.TabIndex = 17;
             // 
-            // numericUpDown9
+            // numericUpDown_BigUp
             // 
-            this.numericUpDown9.Location = new System.Drawing.Point(502, 313);
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown9.TabIndex = 18;
+            this.numericUpDown_BigUp.Location = new System.Drawing.Point(502, 313);
+            this.numericUpDown_BigUp.Name = "numericUpDown_BigUp";
+            this.numericUpDown_BigUp.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown_BigUp.TabIndex = 18;
             // 
-            // button1
+            // button_OK
             // 
-            this.button1.Location = new System.Drawing.Point(577, 385);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 31);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "ОК";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_OK.Location = new System.Drawing.Point(577, 385);
+            this.button_OK.Name = "button_OK";
+            this.button_OK.Size = new System.Drawing.Size(77, 31);
+            this.button_OK.TabIndex = 19;
+            this.button_OK.Text = "ОК";
+            this.button_OK.UseVisualStyleBackColor = true;
+            this.button_OK.Click += new System.EventHandler(this.button_OK_Click);
             // 
             // Form_AddParam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.numericUpDown9);
-            this.Controls.Add(this.numericUpDown8);
-            this.Controls.Add(this.numericUpDown7);
-            this.Controls.Add(this.numericUpDown6);
-            this.Controls.Add(this.numericUpDown5);
-            this.Controls.Add(this.numericUpDown4);
-            this.Controls.Add(this.numericUpDown3);
-            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.button_OK);
+            this.Controls.Add(this.numericUpDown_BigUp);
+            this.Controls.Add(this.numericUpDown_BigAr);
+            this.Controls.Add(this.numericUpDown_BigDown);
+            this.Controls.Add(this.numericUpDown_ArUp);
+            this.Controls.Add(this.numericUpDown_ArAr);
+            this.Controls.Add(this.numericUpDown_ArDow);
+            this.Controls.Add(this.numericUpDown_MalUp);
+            this.Controls.Add(this.numericUpDown_MalAr);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numericUpDown_MalDown);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_Name);
             this.Name = "Form_AddParam";
             this.Text = "Form_AddParam";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_MalDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_MalAr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_MalUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ArDow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ArAr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_ArUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_BigDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_BigAr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_BigUp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,24 +252,24 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_Name;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown_MalDown;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
-        private System.Windows.Forms.NumericUpDown numericUpDown8;
-        private System.Windows.Forms.NumericUpDown numericUpDown9;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown numericUpDown_MalAr;
+        private System.Windows.Forms.NumericUpDown numericUpDown_MalUp;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ArDow;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ArAr;
+        private System.Windows.Forms.NumericUpDown numericUpDown_ArUp;
+        private System.Windows.Forms.NumericUpDown numericUpDown_BigDown;
+        private System.Windows.Forms.NumericUpDown numericUpDown_BigAr;
+        private System.Windows.Forms.NumericUpDown numericUpDown_BigUp;
+        private System.Windows.Forms.Button button_OK;
     }
 }
