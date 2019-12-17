@@ -84,7 +84,78 @@ namespace SPPR_Services.ImplementationBD
 
         public void UpdElement(ParametrBM model)
         {
-            throw new NotImplementedException();
+            using (var transaction = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    Parametr element = context.Parametrs.FirstOrDefault(rec => rec.Id == model.Id);
+                    if (element == null)
+                    {
+                        throw new Exception("Элемент не найден");
+                    }
+                    element.Name = model.Name;
+                    context.SaveChanges();
+
+
+                    //найти все старые маркиПар
+                    List<MarkParametrBM> markParametrs = context.MarkParametrs .Select(rec => new MarkParametrBM
+                    {
+                     Id = rec.Id,
+                      Average = rec.Average,
+                      Cheking = rec.Cheking,
+                   Count = rec.Count,
+                   Down = rec.Down,
+                   Mark = rec.Mark,
+                    ParametrId = rec.ParametrId,
+                    Up = rec.Up
+                            }).Where(rec => rec.ParametrId == model.Id).ToList();
+                    //удалить все старые марки пар
+                    foreach (MarkParametrBM markpar in markParametrs)
+                    {
+                        DelElement(markpar);
+                    }
+                    //запистаь все новые
+
+                    foreach (var mp in model.MarkParametrs)
+                    {
+                        MarkParametr newMarkPar = context.MarkParametrs.FirstOrDefault(rec => rec.Mark == mp.Mark && rec.ParametrId == mp.ParametrId);
+                        if (element != null)
+                        {
+                            throw new Exception("Уже есть такой MarkParametr");
+                        }
+                        context.MarkParametrs.Add(new MarkParametr
+                        {
+                            Average = mp.Average,
+                            Cheking = mp.Cheking,
+                            Down = mp.Down,
+                            Mark = mp.Mark,
+                            ParametrId = mp.ParametrId,
+                            Up = mp.Up
+                        });
+                        context.SaveChanges();
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
+        }
+
+        public void DelElement(MarkParametrBM model)
+        {
+            MarkParametr element = context.MarkParametrs.FirstOrDefault(rec => rec.Id == model.Id);
+            if (element != null)
+            {
+                context.MarkParametrs.Remove(element);
+                context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("Элемент не найден");
+            }
         }
     }
 }

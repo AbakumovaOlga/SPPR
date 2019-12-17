@@ -116,15 +116,25 @@ namespace SPPR_Forms
                     MessageBox.Show("Список продуктов пуст", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
-                _serviceT.CreateElement(new TelephoneBM
+                if (id.HasValue)
+                {
+                    _serviceT.UpdElement(new TelephoneBM
+                    {
+                        Date = dateTimePicker_Date.Value,
+                        Name = textBox_Name.Text,
+                        TelepParams = TelepParamBMs
+                    });
+                }
+                else
+                {
+                    _serviceT.CreateElement(new TelephoneBM
                 {
                     ///////////////
                     Date = dateTimePicker_Date.Value,
                     Name=textBox_Name.Text,
                     TelepParams = TelepParamBMs
                 });
-                //  }
+                 }
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
             }
@@ -150,10 +160,14 @@ namespace SPPR_Forms
                         LoadData();
                     }
                 }
+                
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                button_Ok.Enabled = false;
+                button_Del.Enabled = false;
+                button_Add.Enabled = false;
             }
             else
             {

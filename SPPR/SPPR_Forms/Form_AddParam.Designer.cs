@@ -236,6 +236,7 @@
             this.Controls.Add(this.textBox_Name);
             this.Name = "Form_AddParam";
             this.Text = "Form_AddParam";
+            this.Load += new System.EventHandler(this.Form_AddParam_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_MalDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_MalAr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_MalUp)).EndInit();

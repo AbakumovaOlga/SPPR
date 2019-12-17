@@ -39,6 +39,7 @@
             this.анализToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выборToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.прогнозToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.графикToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,7 +115,8 @@
             // 
             this.анализToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.выборToolStripMenuItem,
-            this.прогнозToolStripMenuItem});
+            this.прогнозToolStripMenuItem,
+            this.графикToolStripMenuItem});
             this.анализToolStripMenuItem.Name = "анализToolStripMenuItem";
             this.анализToolStripMenuItem.Size = new System.Drawing.Size(86, 29);
             this.анализToolStripMenuItem.Text = "Анализ";
@@ -122,16 +124,23 @@
             // выборToolStripMenuItem
             // 
             this.выборToolStripMenuItem.Name = "выборToolStripMenuItem";
-            this.выборToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
+            this.выборToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.выборToolStripMenuItem.Text = "Выбор";
             this.выборToolStripMenuItem.Click += new System.EventHandler(this.выборToolStripMenuItem_Click);
             // 
             // прогнозToolStripMenuItem
             // 
             this.прогнозToolStripMenuItem.Name = "прогнозToolStripMenuItem";
-            this.прогнозToolStripMenuItem.Size = new System.Drawing.Size(185, 34);
+            this.прогнозToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.прогнозToolStripMenuItem.Text = "Прогноз";
             this.прогнозToolStripMenuItem.Click += new System.EventHandler(this.прогнозToolStripMenuItem_Click);
+            // 
+            // графикToolStripMenuItem
+            // 
+            this.графикToolStripMenuItem.Name = "графикToolStripMenuItem";
+            this.графикToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.графикToolStripMenuItem.Text = "График";
+            this.графикToolStripMenuItem.Click += new System.EventHandler(this.графикToolStripMenuItem_Click);
             // 
             // Form_Start
             // 
@@ -163,6 +172,7 @@
         private System.Windows.Forms.ToolStripMenuItem добавитьТелефонToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокТелефоновToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокПараметровToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem графикToolStripMenuItem;
     }
 }
 

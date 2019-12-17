@@ -66,6 +66,7 @@
     </Reference>
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -89,6 +90,24 @@
     </Compile>
     <Compile Include="Form_AddTelepParam.Designer.cs">
       <DependentUpon>Form_AddTelepParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Graf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Graf.Designer.cs">
+      <DependentUpon>Form_Graf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ParamTreb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ParamTreb.Designer.cs">
+      <DependentUpon>Form_ParamTreb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Res.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Res.Designer.cs">
+      <DependentUpon>Form_Res.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Start.cs">
       <SubType>Form</SubType>
@@ -143,6 +162,15 @@
     <Compile Include="Tend.cs" />
     <EmbeddedResource Include="Form_AddTelepParam.resx">
       <DependentUpon>Form_AddTelepParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Graf.resx">
+      <DependentUpon>Form_Graf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ParamTreb.resx">
+      <DependentUpon>Form_ParamTreb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Res.resx">
+      <DependentUpon>Form_Res.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Start.resx">
       <DependentUpon>Form_Start.cs</DependentUpon>

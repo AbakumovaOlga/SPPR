@@ -1,4 +1,5 @@
-﻿using SPPR_Services.BindingModels;
+﻿using SPPR;
+using SPPR_Services.BindingModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,7 @@ namespace SPPR_Services.Interfaces
         List<MarkParametrBM> GetList(ParametrBM parametr);
 
         MarkParametrBM GetElement(int id);
+
+        MarkParametrBM GetElement(int idParam, Marks mark);
     }
 }

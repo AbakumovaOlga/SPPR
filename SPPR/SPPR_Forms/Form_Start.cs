@@ -67,5 +67,11 @@ namespace SPPR_Forms
         {
             
         }
+
+        private void графикToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<Form_Graf>();
+            form.Show();
+        }
     }
 }

@@ -72,6 +72,11 @@ namespace SPPR_Services.ImplementationBD
             throw new Exception("Элемент не найден");
         }
 
+        public MarkParametrBM GetElement(int idParam, Marks mark)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<MarkParametrBM> GetList()
         {
             List<MarkParametrBM> result = context.MarkParametrs
@@ -109,8 +114,73 @@ namespace SPPR_Services.ImplementationBD
         }
 
         public void UpdElement(MarkParametrBM model)
-        {
-            throw new NotImplementedException();
+        {/*
+            using (var transaction = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    Parametr element = context.Parametrs.FirstOrDefault(rec => rec.Id == model.Id);
+                    if (element == null)
+                    {
+                        throw new Exception("Элемент не найден");
+                    }
+                    element.Name = model.na;
+                    element.Price = model.Price;
+                    context.SaveChanges();
+
+                    // обновляем существуюущие компоненты
+                    var compIds = model.ProductComponents.Select(rec => rec.ComponentId).Distinct();
+                    var updateComponents = context.ProductComponents
+                                                    .Where(rec => rec.ProductId == model.Id &&
+                                                        compIds.Contains(rec.ComponentId));
+                    foreach (var updateComponent in updateComponents)
+                    {
+                        updateComponent.Count = model.ProductComponents
+                                                        .FirstOrDefault(rec => rec.Id == updateComponent.Id).Count;
+                    }
+                    context.SaveChanges();
+                    context.ProductComponents.RemoveRange(
+                                        context.ProductComponents.Where(rec => rec.ProductId == model.Id &&
+                                                                            !compIds.Contains(rec.ComponentId)));
+                    context.SaveChanges();
+                    // новые записи
+                    var groupComponents = model.ProductComponents
+                                                .Where(rec => rec.Id == 0)
+                                                .GroupBy(rec => rec.ComponentId)
+                                                .Select(rec => new
+                                                {
+                                                    ComponentId = rec.Key,
+                                                    Count = rec.Sum(r => r.Count)
+                                                });
+                    foreach (var groupComponent in groupComponents)
+                    {
+                        ProductComponent elementPC = context.ProductComponents
+                                                .FirstOrDefault(rec => rec.ProductId == model.Id &&
+                                                                rec.ComponentId == groupComponent.ComponentId);
+                        if (elementPC != null)
+                        {
+                            elementPC.Count += groupComponent.Count;
+                            context.SaveChanges();
+                        }
+                        else
+                        {
+                            context.ProductComponents.Add(new ProductComponent
+                            {
+                                ProductId = model.Id,
+                                ComponentId = groupComponent.ComponentId,
+                                Count = groupComponent.Count
+                            });
+                            context.SaveChanges();
+                        }
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }*/
         }
     }
 }

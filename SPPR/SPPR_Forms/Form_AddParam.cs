@@ -23,6 +23,10 @@ namespace SPPR_Forms
         private readonly IMarkParamService _serviceMP;
         private readonly IParametrService _serviceP;
         List<MarkParametr> markParametrs;
+
+        public int Id { set { id = value; } }
+        private int? id;
+
         public Form_AddParam(IParametrService serviceP, IMarkParamService serviceMP)
         {
             _serviceP = serviceP;
@@ -55,12 +59,73 @@ namespace SPPR_Forms
                 Average = (int)numericUpDown_BigAr.Value,
                 Up = (int)numericUpDown_BigUp.Value
             });
-
-            _serviceP.CreateElement(new ParametrBM
+            if (id.HasValue)
             {
-                Name=textBox_Name.Text,
-                MarkParametrs=markParametrs
-            });
+                _serviceP.UpdElement(new ParametrBM
+                {
+                    Id = id.Value,
+                    MarkParametrs = markParametrs
+                });
+            }
+            else
+            {
+                _serviceP.CreateElement(new ParametrBM
+                {
+                    Name = textBox_Name.Text,
+                    MarkParametrs = markParametrs
+                });
+            }
+        }
+
+        private void Form_AddParam_Load(object sender, EventArgs e)
+        {
+            if (id.HasValue)
+            {
+                try
+                {
+                    ParametrBM view = _serviceP.GetElement(id.Value);
+                    if (view != null)
+                    {
+                        textBox_Name.Text = view.Name;
+                        LoadData();
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               // button_OK.Enabled = false;
+            }
+
+        }
+
+        private void LoadData()
+        {
+            ParametrBM par = _serviceP.GetElement(id.Value);
+            List<MarkParametrBM> markParametrs = _serviceMP.GetList(par);
+
+            foreach (MarkParametrBM mp in markParametrs)
+            {
+                if (mp.Mark == Marks.Низкая)
+                {
+                    numericUpDown_MalDown.Value = mp.Down;
+                    numericUpDown_MalAr.Value = mp.Average;
+                    numericUpDown_MalUp.Value = mp.Up;
+                }
+                if (mp.Mark == Marks.Средняя)
+                {
+                    numericUpDown_ArDow.Value = mp.Down;
+                    numericUpDown_ArAr.Value = mp.Average;
+                    numericUpDown_ArUp.Value = mp.Up;
+                }
+                if (mp.Mark == Marks.Высокая)
+                {
+                    numericUpDown_BigDown.Value = mp.Down;
+                    numericUpDown_BigDown.Value = mp.Average;
+                    numericUpDown_BigUp.Value = mp.Up;
+                }
+            }
         }
     }
 }

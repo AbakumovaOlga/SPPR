@@ -124,20 +124,58 @@ namespace SPPR_Forms
             sourse.DataSource = paramMarks;
             dataGridView_Pred.DataSource = sourse;
         }
+        /*   public Marks GetMarky1(ParametrBM parametr, int chislo)
+           {
+               Marks m = Marks.Средняя;
+               int prin = 0;
+
+               List<MarkParametrBM> markParametrs = _serviceMP.GetList(parametr);
+
+               foreach (MarkParametrBM mp in markParametrs)
+               {
+                   int down = mp.Down;
+                   int av = mp.Average;
+                   int up = mp.Up;
+                   int p = 0;
+                   if (chislo <= av)
+                   {
+                       if (down == 0)
+                       {
+                           p = 0;
+                       }
+                       else
+                       {
+                           p = chislo / down;
+                       }
+                   }
+                   else
+                   {
+                       p = 1 - chislo / up;
+                   }
+                   if (p > prin)
+                   {
+                       prin = p;
+                       m = mp.Mark;
+                   }
+
+               }
+
+               return m;
+           }*/
         public Marks GetMarky(ParametrBM parametr, int chislo)
         {
             Marks m = Marks.Средняя;
-            int prin = 0;
+            double prin = -100;
 
             List<MarkParametrBM> markParametrs = _serviceMP.GetList(parametr);
 
             foreach (MarkParametrBM mp in markParametrs)
             {
-                int down = mp.Down;
-                int av = mp.Average;
-                int up = mp.Up;
-                int p = 0;
-                if (chislo <= av)
+                double down = mp.Down;
+                double av = mp.Average;
+                double up = mp.Up;
+                double p = -100;
+                if (chislo < av)
                 {
                     if (down == 0)
                     {
@@ -145,12 +183,16 @@ namespace SPPR_Forms
                     }
                     else
                     {
-                        p = chislo / down;
+                        p = (chislo - down) / down;
                     }
+                }
+                else if (chislo == av)
+                {
+                    p = 1;
                 }
                 else
                 {
-                    p = 1 - chislo / up;
+                    p = 2 - (chislo / av);
                 }
                 if (p > prin)
                 {

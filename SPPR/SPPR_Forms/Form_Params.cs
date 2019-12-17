@@ -52,6 +52,7 @@ namespace SPPR_Forms
         {
             var form = Container.Resolve<Form_AddParam>();
             form.Show();
+            LoadData();
         }
 
         private void button_Del_Click(object sender, EventArgs e)
@@ -69,6 +70,19 @@ namespace SPPR_Forms
                     {
                         MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    LoadData();
+                }
+            }
+        }
+
+        private void dataGridView_Params_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dataGridView_Params.SelectedRows.Count == 1)
+            {
+                var form = Container.Resolve<Form_AddParam>();
+                form.Id = Convert.ToInt32(dataGridView_Params.SelectedRows[0].Cells[0].Value);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
                     LoadData();
                 }
             }
