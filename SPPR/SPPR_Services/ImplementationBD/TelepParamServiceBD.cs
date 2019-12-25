@@ -11,9 +11,9 @@ namespace SPPR_Services.ImplementationBD
 {
     public class TelepParamServiceBD : ITelepParamService
     {
-        private SPPRDbContext context;
+        private SPPRDbContext3 context;
 
-        public TelepParamServiceBD(SPPRDbContext context)
+        public TelepParamServiceBD(SPPRDbContext3 context)
         {
             this.context = context;
         }
@@ -50,6 +50,22 @@ namespace SPPR_Services.ImplementationBD
         public TelepParamBM GetElement(int id)
         {
             TelepParam element = context.TelepParams.FirstOrDefault(rec => rec.Id == id);
+            if (element != null)
+            {
+                return new TelepParamBM
+                {
+                    Id = element.Id,
+                    ParametrId = element.ParametrId,
+                    TelephoneId = element.TelephoneId,
+                    Value = element.Value
+                };
+            }
+            throw new Exception("Элемент не найден");
+        }
+
+        public TelepParamBM GetElement(int paramId, int telepId)
+        {
+            TelepParam element = context.TelepParams.FirstOrDefault(rec => rec.ParametrId == paramId&&rec.TelephoneId==telepId);
             if (element != null)
             {
                 return new TelepParamBM

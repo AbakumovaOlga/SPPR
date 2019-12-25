@@ -1,4 +1,5 @@
-﻿using SPPR_Services.BindingModels;
+﻿using SPPR;
+using SPPR_Services.BindingModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace SPPR_Services.Interfaces
 {
     public interface IMarkParamService
     {
-        void CreateElement(MarkParametrBM model);
+        void CreateElement(MarkParametr model);
 
         void UpdElement(MarkParametrBM model);
 
@@ -17,6 +18,10 @@ namespace SPPR_Services.Interfaces
 
         List<MarkParametrBM> GetList();
 
+        List<MarkParametrBM> GetList(ParametrBM parametr, int userId);
+
         MarkParametrBM GetElement(int id);
+
+        MarkParametrBM GetElement(int idParam, Marks mark);
     }
 }

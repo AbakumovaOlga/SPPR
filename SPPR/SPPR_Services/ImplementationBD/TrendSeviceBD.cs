@@ -11,9 +11,9 @@ namespace SPPR_Services.ImplementationBD
 {
     public class TrendSeviceBD : ITrendService
     {
-        private SPPRDbContext context;
+        private SPPRDbContext3 context;
 
-        public TrendSeviceBD(SPPRDbContext context)
+        public TrendSeviceBD(SPPRDbContext3 context)
         {
             this.context = context;
         }
@@ -47,6 +47,15 @@ namespace SPPR_Services.ImplementationBD
             {
                 throw new Exception("Элемент не найден");
             }
+        }
+
+        public bool DeleteAll()
+        {
+            foreach (var el in GetList())
+            {
+                DelElement(el);
+            }
+            return true;
         }
 
         public TrendBM GetElement(int id)

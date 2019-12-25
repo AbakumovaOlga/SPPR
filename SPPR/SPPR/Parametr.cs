@@ -19,5 +19,8 @@ namespace SPPR
 
         [ForeignKey("ParametrId")]
         public virtual List<MarkParametr> MarkParametrs { get; set; }
+
+
+
     }
 }

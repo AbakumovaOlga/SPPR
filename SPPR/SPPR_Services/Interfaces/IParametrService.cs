@@ -14,10 +14,11 @@ namespace SPPR_Services.Interfaces
 
         void UpdElement(ParametrBM model);
 
-        void DelElement(ParametrBM model);
+        void DelElement(int id);
 
         List<ParametrBM> GetList();
 
         ParametrBM GetElement(int id);
+        ParametrBM GetElement(int id, int userId);
     }
 }

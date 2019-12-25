@@ -17,5 +17,8 @@ namespace SPPR_Services.BindingModels
         public virtual List<TelepParam> TelepParams { get; set; }
 
         public virtual List<MarkParametr> MarkParametrs { get; set; }
+
+
+       
     }
 }

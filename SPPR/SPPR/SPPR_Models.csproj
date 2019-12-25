@@ -57,7 +57,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Telephone.cs" />
     <Compile Include="TelepParam.cs" />
+    <Compile Include="TrebParam.cs" />
     <Compile Include="Trend.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

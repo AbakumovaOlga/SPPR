@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace SPPR_Services
 {
-    [Table("SPPRDatabase")]
-    public class SPPRDbContext : DbContext
+    [Table("SPPRDatabase3")]
+    public class SPPRDbContext3 : DbContext
     {
-        public SPPRDbContext()
+        public SPPRDbContext3()
         {
             //настройки конфигурации для entity
             Configuration.ProxyCreationEnabled = false;
@@ -30,5 +30,7 @@ namespace SPPR_Services
         public virtual DbSet<TelepParam> TelepParams { get; set; }
 
         public virtual DbSet<Trend> Trends { get; set; }
+
+        public virtual DbSet<User> Users { get; set; }
     }
 }

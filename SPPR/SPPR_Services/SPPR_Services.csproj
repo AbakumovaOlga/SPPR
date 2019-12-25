@@ -60,6 +60,7 @@
     <Compile Include="BindingModels\TelephoneBM.cs" />
     <Compile Include="BindingModels\TelepParamBM.cs" />
     <Compile Include="BindingModels\TrendBM.cs" />
+    <Compile Include="BindingModels\UserBM.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="ImplementationBD\AnalizeServiceBD.cs" />
     <Compile Include="ImplementationBD\MarkParamServiceBD.cs" />
@@ -67,14 +68,22 @@
     <Compile Include="ImplementationBD\TelephoneServiceBD.cs" />
     <Compile Include="ImplementationBD\TelepParamServiceBD.cs" />
     <Compile Include="ImplementationBD\TrendSeviceBD.cs" />
+    <Compile Include="ImplementationBD\UserServiceBD.cs" />
     <Compile Include="Interfaces\IAnalizeService.cs" />
     <Compile Include="Interfaces\IMarkParamService.cs" />
     <Compile Include="Interfaces\IParametrService.cs" />
     <Compile Include="Interfaces\ITelephoneService.cs" />
     <Compile Include="Interfaces\ITelepParamService.cs" />
     <Compile Include="Interfaces\ITrendService.cs" />
+    <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="Migrations\201912251808387_first.cs" />
+    <Compile Include="Migrations\201912251808387_first.designer.cs">
+      <DependentUpon>201912251808387_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SPPRDbContext.cs" />
+    <Compile Include="Sevices.cs" />
+    <Compile Include="SPPRDbContext3.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -85,6 +94,11 @@
       <Project>{E833EC1D-8828-472B-8486-F5150A58E32F}</Project>
       <Name>SPPR_Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201912251808387_first.resx">
+      <DependentUpon>201912251808387_first.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

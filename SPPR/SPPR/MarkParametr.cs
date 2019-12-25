@@ -22,5 +22,10 @@ namespace SPPR
         public int ParametrId { get; set; }
 
         public virtual Parametr Parametr { get; set; }
+
+
+        public int UserId { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

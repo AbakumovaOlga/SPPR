@@ -11,31 +11,55 @@ namespace SPPR_Services.ImplementationBD
 {
     public class TelephoneServiceBD : ITelephoneService
     {
-        private SPPRDbContext context;
+        private SPPRDbContext3 context;
 
-        public TelephoneServiceBD(SPPRDbContext context)
+        public TelephoneServiceBD(SPPRDbContext3 context)
         {
             this.context = context;
         }
 
         public void CreateElement(TelephoneBM model)
         {
-            Telephone element = context.Telephones.FirstOrDefault(rec => rec.Name == model.Name);
-            if (element != null)
+            using (var transaction = context.Database.BeginTransaction())
             {
-                throw new Exception("Уже есть telephone с таким name");
+                try
+                {
+
+                    Telephone element = context.Telephones.FirstOrDefault(rec => rec.Name == model.Name);
+                    if (element != null)
+                    {
+                        throw new Exception("Уже есть telephone с таким name");
+                    }
+                    Telephone tel = new Telephone
+                    {
+                        Name = model.Name,
+                        Date = model.Date
+                    };
+                    context.Telephones.Add(tel);
+                    context.SaveChanges();
+                    foreach (var TelepParam in model.TelepParams)
+                    {
+                        context.TelepParams.Add(new TelepParam
+                        {
+                            ParametrId = TelepParam.ParametrId,
+                            TelephoneId = tel.Id,
+                            Value = TelepParam.Value
+                        });
+                        context.SaveChanges();
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
             }
-            context.Telephones.Add(new Telephone
-            {
-                Name = model.Name,
-                Data=model.Data
-            });
-            context.SaveChanges();
         }
 
-        public void DelElement(TelephoneBM model)
+        public void DelElement(int id)
         {
-            Telephone element = context.Telephones.FirstOrDefault(rec => rec.Id == model.Id);
+            Telephone element = context.Telephones.FirstOrDefault(rec => rec.Id == id);
             if (element != null)
             {
                 context.Telephones.Remove(element);
@@ -56,7 +80,7 @@ namespace SPPR_Services.ImplementationBD
                 {
                     Id = element.Id,
                     Name = element.Name,
-                    Data=element.Data,
+                    Date = element.Date,
                     TelepParams = element.TelepParams
                 };
             }
@@ -70,16 +94,102 @@ namespace SPPR_Services.ImplementationBD
                 {
                     Id = rec.Id,
                     Name = rec.Name,
-                    Data=rec.Data,
-                    TelepParams=rec.TelepParams
+                    Date = rec.Date,
+                    TelepParams = rec.TelepParams
                 })
                 .ToList();
             return result;
         }
 
-        public void UpdElement(TelephoneBM model)
+        public List<TelephoneBM> GetSortList()
         {
-            throw new NotImplementedException();
+            List<TelephoneBM> result = new List<TelephoneBM>();
+            TelepComparer telepComparer = new TelepComparer();
+            List<Telep> list = context.Telephones
+                .Select(rec => new Telep
+                {
+                    Id = rec.Id,
+                    Name = rec.Name,
+                    Date = rec.Date
+                })
+                .ToList();
+
+            list.Sort(telepComparer);
+
+            foreach (var l in list)
+            {
+                result.Add(GetElement(l.Id));
+            }
+            return result;
+        }
+
+        public void UpdElement(TelephoneBM model)
+        {/*
+            using (var transaction = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    Telephone element = context.Telephones.FirstOrDefault(rec =>
+                                        rec.Name == model.Name && rec.Id != model.Id);
+                    if (element != null)
+                    {
+                        throw new Exception("Уже есть телефон с таким названием");
+                    }
+                    element = context.Telephones.FirstOrDefault(rec => rec.Id == model.Id);
+                    if (element == null)
+                    {
+                        throw new Exception("Элемент не найден");
+                    }
+                    element.Name = model.Name;
+                    element.Date = model.Date;
+                    context.SaveChanges();
+
+                    // обновляем существуюущие компоненты
+                    var compIds = model.TelepParams.Select(rec => rec.ParametrId).Distinct();
+                    var updateComponents = context.TelepParams
+                                                    .Where(rec => rec.TelephoneId == model.Id &&
+                                                        compIds.Contains(rec.ParametrId));
+                    foreach (var updateComponent in updateComponents)
+                    {
+                        updateComponent.Value = model.TelepParams
+                                                        .FirstOrDefault(rec => rec.Id == updateComponent.Id).Value;
+                    }
+                    context.SaveChanges();
+                    context.TelepParams.RemoveRange(
+                                        context.TelepParams.Where(rec => rec.TelephoneId == model.Id &&
+                                                                            !compIds.Contains(rec.ParametrId)));
+                    context.SaveChanges();
+                    // новые записи
+                   
+                    foreach (var groupComponent in updateComponents)
+                    {
+                        TelepParam elementPC = context.TelepParams
+                                                .FirstOrDefault(rec => rec.TelephoneId == model.Id &&
+                                                                rec.ParametrId == groupComponent.ComponentId);
+                        if (elementPC != null)
+                        {
+                            elementPC.Count += groupComponent.Count;
+                            context.SaveChanges();
+                        }
+                        else
+                        {
+                            context.TelepParams.Add(new TelepParam
+                            {
+                                TelephoneId = model.Id,
+                                ParametrId = groupComponent.ComponentId,
+                                Value = groupComponent.value
+                            });
+                            context.SaveChanges();
+                        }
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }*/
         }
     }
 }
