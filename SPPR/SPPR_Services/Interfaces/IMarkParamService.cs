@@ -10,7 +10,7 @@ namespace SPPR_Services.Interfaces
 {
     public interface IMarkParamService
     {
-        void CreateElement(MarkParametr model);
+        void CreateElement(MarkParametrBM model);
 
         void UpdElement(MarkParametrBM model);
 

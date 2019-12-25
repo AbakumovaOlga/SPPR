@@ -18,7 +18,7 @@ namespace SPPR_Services.ImplementationBD
             this.context = context;
         }
 
-        public void CreateElement(MarkParametr model)
+        public void CreateElement(MarkParametrBM model)
         {
             MarkParametr element = context.MarkParametrs.FirstOrDefault(rec => rec.Mark == model.Mark && rec.ParametrId==model.ParametrId&& rec.UserId==model.UserId);
             if (element != null)

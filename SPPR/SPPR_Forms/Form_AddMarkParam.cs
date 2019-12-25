@@ -17,7 +17,7 @@ namespace SPPR_Forms
 
         public int userId { get; set; }
         public int paramId { get; set; }
-        public MarkParametr model { set; get; }
+        public MarkParametrBM model { set; get; }
         public Form_AddMarkParam()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace SPPR_Forms
         {
             try
             {
-                model = new MarkParametr
+                model = new MarkParametrBM
                 {
                     Mark = (Marks)comboBox_Mark.SelectedValue,
                     Down=(int)numericUpDown_MalDown.Value,

@@ -42,7 +42,7 @@ namespace SPPR_Forms
                 {
                     var form = Container.Resolve<Form_MarksParam>();
                     form.userId = userId;
-                    form.Id = id;
+                    form.paramId = id;
                     form.Show();
                  //   LoadData();
                 }

@@ -19,12 +19,12 @@ namespace SPPR_Forms
         [Dependency]
         public new IUnityContainer Container { get; set; }
         public int userId { get; set; }
-        public int Id { get; set; }
+        public int paramId { get; set; }
 
         private readonly IParametrService _serviceP;
         private readonly IMarkParamService _serviceMP;
 
-        List<MarkParametr> markParametrs;
+        List<MarkParametrBM> markParametrs;
         public Form_MarksParam(IParametrService serviceP, IMarkParamService serviceMP)
         {
             _serviceP = serviceP;
@@ -34,19 +34,19 @@ namespace SPPR_Forms
 
         private void Form_MarksParam_Load(object sender, EventArgs e)
         {
-            ParametrBM parametr = _serviceP.GetElement(Id, userId);
+            ParametrBM parametr = _serviceP.GetElement(paramId, userId);
 
             textBox_Name.Text = parametr.Name;
-            markParametrs = new List<MarkParametr>();
-            markParametrs = parametr.MarkParametrs;
-           // dataGridView_MarkParams.DataSource = parametr.MarkParametrs;
+            markParametrs = new List<MarkParametrBM>();
+            markParametrs = _serviceMP.GetList(parametr, userId);
+            dataGridView_MarkParams.DataSource = markParametrs;
         }
 
         private void button_Add_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<Form_AddMarkParam>();
             form.userId = userId;
-            form.paramId = Id;
+            form.paramId = paramId;
             if (form.ShowDialog() == DialogResult.OK)
             {
                 markParametrs.Add(form.model);
